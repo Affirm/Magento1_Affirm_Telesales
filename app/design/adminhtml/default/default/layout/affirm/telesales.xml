@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<layout>
+    <!-- Adding the block in sales/order/view page -->
+    <adminhtml_sales_order_view>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/affirm/telesales.js</name>
+            </action>
+        </reference>
+        <!-- You can change the reference to whatever you like. Look ate layout/sales.xml for more options -->
+        <!-- This should be same in Model/Observer.php::getSalesOrderViewInfo() -->
+        <reference name="order_info">
+            <block type="affirm_telesales/adminhtml_sales_order_view_info_block" name="affirm-telesales-payment-block" template="affirm/telesales/payment.phtml" after="order_history" />
+        </reference>
+    </adminhtml_sales_order_view>
+</layout>

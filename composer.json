@@ -1,0 +1,26 @@
+{
+  "name": "affirm/magento1-telesales",
+  "description": "Affirm Telesales",
+  "type": "magento-module",
+  "keywords": [
+    "affirm",
+    "api",
+    "consumer finance",
+    "credit",
+    "e-commerce",
+    "payment method",
+    "telesales"
+  ],
+  "homepage": "https://github.com/Affirm/Magento1_Affirm_Telesales",
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Affirm, Inc.",
+      "homepage": "https://www.affirm.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.2",
+    "affirm/affirm-php": ">=3.5.4"
+  }
+}

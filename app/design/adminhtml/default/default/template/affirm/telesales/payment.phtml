@@ -1,0 +1,18 @@
+<?php $order = Mage::helper('affirm_telesales')->getOrder() ?>
+<div class="entry-edit box-left">
+    <div class="entry-edit-head">
+        <h4 class="icon-head"><?php echo $this->__('Affirm Payment Details') ?></h4>
+    </div>
+    <fieldset>
+        <div id="affirm-telesales-payment-block">
+            <div id="affirm-telesales-desc">
+                <?php echo $this->getDescription() ?>
+            </div>
+            <div id="affirm-telesales-button">
+                <?php echo $this->getSendCheckoutButtonHtml() ?>
+                <?php echo $this->getReSendCheckoutButtonHtml() ?>
+            </div>
+        </div>
+    </fieldset>
+</div>
+<div class="clear"></div>
