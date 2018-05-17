@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<layout>
+    <telesales_payment_failure translate="label">
+        <label>Error</label>
+        <reference name="content">
+            <block type="checkout/onepage_failure" name="custom_error" template="affirm/telesales/checkout/error.phtml"/>
+        </reference>
+    </telesales_payment_failure>
+</layout>
