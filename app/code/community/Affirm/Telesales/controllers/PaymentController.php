@@ -9,9 +9,7 @@ class Affirm_Telesales_PaymentController extends Mage_Checkout_Controller_Action
      */
     public function confirmAction()
     {
-        Mage::log(__METHOD__);
         $checkoutToken = $this->getRequest()->getParam('checkout_token');
-        Mage::log('Checkout Token: '.$checkoutToken);
         if (!$checkoutToken) {
             $result['success']  = false;
             $result['error']    = true;
@@ -30,10 +28,8 @@ class Affirm_Telesales_PaymentController extends Mage_Checkout_Controller_Action
                 try {
                     $order = Mage::getModel('sales/order')->loadByIncrementId($incrementId);
                     if ($order->getId()) {
-                        Mage::log('order id: '.$order->getId());
                         $storeId = $order->getStoreId();
                         $paymentStatus = $order->getStatus();
-                        Mage::log('Payment status: '.$paymentStatus);
                         if($paymentStatus == Mage_Sales_Model_Order::STATE_PENDING_PAYMENT) {
                             Mage::getModel('affirm_telesales/telesales')->processConfirmOrder($order, $checkoutToken);
                             Mage::getSingleton('checkout/session')->setLastQuoteId($order->getId())
@@ -78,7 +74,6 @@ class Affirm_Telesales_PaymentController extends Mage_Checkout_Controller_Action
 
     public function cancelAction()
     {
-        Mage::log(__METHOD__);
         $result['success']  = false;
         $result['error']    = true;
         $result['error_messages'] = $this->__('There was an error processing your order. Please contact us or try again later.');
@@ -91,7 +86,6 @@ class Affirm_Telesales_PaymentController extends Mage_Checkout_Controller_Action
 
     public function declineAction()
     {
-        Mage::log(__METHOD__);
         $result['success']  = false;
         $result['error']    = true;
         $result['error_messages'] = $this->__('There was an error processing your order. Please contact us or try again later.');
@@ -104,7 +98,6 @@ class Affirm_Telesales_PaymentController extends Mage_Checkout_Controller_Action
 
     public function failureAction()
     {
-        Mage::log(__METHOD__);
         $this->loadLayout();
         $this->renderLayout();
     }

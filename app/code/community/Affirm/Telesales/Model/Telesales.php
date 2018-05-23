@@ -15,13 +15,11 @@ class Affirm_Telesales_Model_Telesales extends Affirm_Affirm_Model_Payment
 
     public function sendCheckout($checkoutObj)
     {
-        Mage::log(__METHOD__);
         return $this->_apiRequest(Varien_Http_Client::POST, "store", $checkoutObj, null ,self::API_CHECKOUT_PATH);
     }
 
     public function getCheckoutFromToken($token)
     {
-        Mage::log(__METHOD__);
         return $this->_apiRequest(Zend_Http_Client::GET, $token, null, null,self::API_CHECKOUT_PATH);
     }
 
@@ -31,7 +29,6 @@ class Affirm_Telesales_Model_Telesales extends Affirm_Affirm_Model_Payment
      */
     public function processConfirmOrder($order, $checkoutToken)
     {
-        Mage::log(__METHOD__);
         $payment = $order->getPayment();
         $methodInst = $payment->getMethodInstance();
         $methodInst->setHelperClass('affirm_telesales');
@@ -240,8 +237,6 @@ class Affirm_Telesales_Model_Telesales extends Affirm_Affirm_Model_Payment
         }
 
         $checkoutObject = new Varien_Object($checkout);
-        //Mage::log('checkout object: ');
-        Mage::log(var_export($checkoutObject,1));
         Mage::dispatchEvent('affirm_get_checkout_object_after', array('checkout_object' => $checkoutObject));
         $checkout = $checkoutObject->getData();
         return $checkout;
