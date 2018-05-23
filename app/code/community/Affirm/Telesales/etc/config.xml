@@ -51,6 +51,14 @@
                     </affirm_telesales_order_view_info>
                 </observers>
             </core_block_abstract_to_html_after>
+            <controller_action_postdispatch_adminhtml_sales_order_create_save>
+                <observers>
+                    <affirm_telesales_after_order_save_admin>
+                        <class>affirm_telesales/order_observer_observer</class>
+                        <method>execute</method>
+                    </affirm_telesales_after_order_save_admin>
+                </observers>
+            </controller_action_postdispatch_adminhtml_sales_order_create_save>
         </events>
         <layout>
             <updates>

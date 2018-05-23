@@ -17,4 +17,17 @@ class Affirm_Telesales_Model_Order_Observer_Observer {
             }
         }
     }
+
+    public function execute()
+    {
+        $request = Mage::app()->getRequest();
+        $paymentData = $request->getPost('payment');
+        $telesalesEnabled = Mage::helper('core')->isModuleEnabled('Affirm_Telesales');
+        if ($paymentData && isset($paymentData['method']) &&
+            $paymentData['method'] == Affirm_Affirm_Model_Payment::METHOD_CODE &&
+            $telesalesEnabled
+        ) {
+            Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('affirm')->__('Send Affirm application to the user by clicking "Send Affirm Checkout Link" button below.'));
+        }
+    }
 }
