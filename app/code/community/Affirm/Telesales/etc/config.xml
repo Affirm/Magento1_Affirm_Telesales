@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Affirm_Telesales>
+            <version>1.0.0</version>
+        </Affirm_Telesales>
+    </modules>
+    <global>
+        <blocks>
+            <affirm_telesales>
+                <class>Affirm_Telesales_Block</class>
+            </affirm_telesales>
+        </blocks>
+        <helpers>
+            <affirm_telesales>
+                <class>Affirm_Telesales_Helper</class>
+            </affirm_telesales>
+        </helpers>
+        <models>
+            <affirm_telesales>
+                <class>Affirm_Telesales_Model</class>
+                <resourceModel>affirm_telesales_mysql4</resourceModel>
+            </affirm_telesales>
+        </models>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <telesales>
+                    <file>affirm/telesales.xml</file>
+                </telesales>
+            </updates>
+        </layout>
+        <routers>
+            <telesales>
+                <use>standard</use>
+                <args>
+                    <module>Affirm_Telesales</module>
+                    <frontName>telesales</frontName>
+                </args>
+            </telesales>
+        </routers>
+    </frontend>
+    <adminhtml>
+        <events>
+            <core_block_abstract_to_html_after>
+                <observers>
+                    <affirm_telesales_order_view_info>
+                        <class>affirm_telesales/order_observer_observer</class>
+                        <method>getSalesOrderViewInfo</method>
+                    </affirm_telesales_order_view_info>
+                </observers>
+            </core_block_abstract_to_html_after>
+        </events>
+        <layout>
+            <updates>
+                <telesales>
+                    <file>affirm/telesales.xml</file>
+                </telesales>
+            </updates>
+        </layout>
+    </adminhtml>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Affirm_Telesales_Adminhtml before="Mage_Adminhtml">Affirm_Telesales_Adminhtml</Affirm_Telesales_Adminhtml>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <default>
+        <payment>
+            <affirm_telesales>
+                <active>0</active>
+                <account_mode>sandbox</account_mode>
+                <title>Affirm Telesales</title>
+                <label_html_custom><![CDATA[<img src="https://cdn-assets.affirm.com/images/blue_logo-transparent_bg.png" width="52" height="16" class="v-middle">&nbsp;Monthly Payments]]></label_html_custom>
+                <payment_action>authorize</payment_action>
+                <api_key_sandbox />
+                <secret_key_sandbox backend_model="adminhtml/system_config_backend_encrypted"/>
+                <api_key_production />
+                <secret_key_production backend_model="adminhtml/system_config_backend_encrypted"/>
+            </affirm_telesales>
+        </payment>
+    </default>
+</config>
