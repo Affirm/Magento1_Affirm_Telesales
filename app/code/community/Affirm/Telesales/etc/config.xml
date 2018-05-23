@@ -21,11 +21,6 @@
                 <class>Affirm_Telesales_Model</class>
                 <resourceModel>affirm_telesales_mysql4</resourceModel>
             </affirm_telesales>
-            <!--<affirm>
-                <rewrite>
-                    <payment>Affirm_Telesales_Model_Telesales</payment>
-                </rewrite>
-            </affirm>-->
         </models>
     </global>
     <frontend>
@@ -81,7 +76,6 @@
             <affirm_telesales>
                 <active>0</active>
                 <account_mode>sandbox</account_mode>
-                <!-- WARNING: default value for title removed to prevent it from appearing on checkout page on MCE 1.4.0.1 -->
                 <title>Affirm Telesales</title>
                 <label_html_custom><![CDATA[<img src="https://cdn-assets.affirm.com/images/blue_logo-transparent_bg.png" width="52" height="16" class="v-middle">&nbsp;Monthly Payments]]></label_html_custom>
                 <payment_action>authorize</payment_action>

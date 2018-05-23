@@ -16,8 +16,6 @@ var AFFIRM_AFFIRM = AFFIRM_AFFIRM || {};
                         var data = JSON.parse(response.responseText);
                         console.log(data);
                         if (data.success) {
-                            console.log('checkout_id: '+data.checkout_id);
-                            console.log('redirect_url: ' +data.redirect_url);
                             window.location.reload();
                         } else{
                             alert('Error in sending checkout request to user. Please try again.');
@@ -41,8 +39,6 @@ var AFFIRM_AFFIRM = AFFIRM_AFFIRM || {};
                         var data = JSON.parse(response.responseText);
                         console.log(data);
                         if (data.success) {
-                            console.log('checkout_id: '+data.checkout_id);
-                            console.log('redirect_url: ' +data.redirect_url);
                             window.location.reload();
                         } else{
                             alert('Error in sending checkout request to user. Please try again.');

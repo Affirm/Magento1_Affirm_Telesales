@@ -7,7 +7,6 @@ class Affirm_Telesales_Adminhtml_TelesalesController extends Mage_Adminhtml_Cont
      */
     public function checkoutAction()
     {
-        Mage::log(__METHOD__);
         $this->loadLayout();
         $this->_setActiveMenu('sales/orders');
         $this->_addContent($this->getLayout()->createBlock('affirm_telesales/adminhtml_checkout'));
@@ -17,7 +16,6 @@ class Affirm_Telesales_Adminhtml_TelesalesController extends Mage_Adminhtml_Cont
 
     public function createCheckoutAction()
     {
-        Mage::log(__METHOD__);
         $result = new Varien_Object();
         try {
             $orderId = $this->getRequest()->getParam('order_id');
@@ -51,7 +49,6 @@ class Affirm_Telesales_Adminhtml_TelesalesController extends Mage_Adminhtml_Cont
     }
 
     public function sendCheckoutAction($order, $checkoutObj){
-        Mage::log(__METHOD__);
         $response = Mage::getModel('affirm_telesales/telesales')->sendCheckout($checkoutObj);
         return $response;
     }
