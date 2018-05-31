@@ -18,7 +18,7 @@ var AFFIRM_AFFIRM = AFFIRM_AFFIRM || {};
                         if (data.success) {
                             window.location.reload();
                         } else{
-                            alert('Error in sending checkout request to user. Please try again.');
+                            alert('The Affirm checkout link was not sent to the customer due to an error. Please try again.');
                         }
                     } catch (e) {
 
@@ -41,7 +41,7 @@ var AFFIRM_AFFIRM = AFFIRM_AFFIRM || {};
                         if (data.success) {
                             window.location.reload();
                         } else{
-                            alert('Error in sending checkout request to user. Please try again.');
+                            alert('The Affirm checkout link was not sent to the customer due to an error. Please try again.');
                         }
                     } catch (e) {
 

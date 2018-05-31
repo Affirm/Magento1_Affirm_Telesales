@@ -27,7 +27,7 @@ class Affirm_Telesales_Model_Order_Observer_Observer {
             $paymentData['method'] == Affirm_Affirm_Model_Payment::METHOD_CODE &&
             $telesalesEnabled
         ) {
-            Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('affirm')->__('Send Affirm application to the user by clicking "Send Affirm Checkout Link" button below.'));
+            Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('affirm')->__('Click the Send Affirm Checkout Link button below to send the customer the checkout link to begin their loan application.'));
         }
     }
 }

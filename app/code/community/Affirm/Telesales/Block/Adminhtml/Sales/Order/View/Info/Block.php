@@ -31,7 +31,7 @@ class Affirm_Telesales_Block_Adminhtml_Sales_Order_View_Info_Block extends Mage_
      */
     public function getDescription()
     {
-        return $this->helper('affirm_telesales')->__('A link to start the Affirm loan application will be sent to the customer. They can start the application on their own device. Once they complete the payment as their end you will see payment as processed. ');
+        return $this->helper('affirm_telesales')->__('The customer will receive an email and SMS with the Affirm checkout link to begin their loan application. After confirming the loan, they’ll be redirected to your site. If they abandon the loan application or if their loan is declined, they’ll be redirected to an error message on your site. Selecting Affirm as a payment option requires enabling Telesales in Magento.');
     }
 
     /**

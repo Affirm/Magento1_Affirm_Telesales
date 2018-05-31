@@ -34,9 +34,9 @@ class Affirm_Telesales_Adminhtml_TelesalesController extends Mage_Adminhtml_Cont
                     'redirect_url' => $response['redirect_url']
                 );
                 if($response['checkout_id']) {
-                    $this->_getSession()->addSuccess($this->__('Affirm Checkout link was sent to user.'));
+                    $this->_getSession()->addSuccess($this->__('The Affirm checkout link has been sent to the customer.'));
                     $payment->setAffirmCheckoutToken($response['checkout_id']);
-                    $order->addStatusHistoryComment(Mage::helper('affirm_telesales')->__('Affirm Telesales checkout link was sent to user. Checkout token:'.$response['checkout_id']))->save();
+                    $order->addStatusHistoryComment(Mage::helper('affirm_telesales')->__('The Affirm checkout link has been sent to the customer. Checkout token:'.$response['checkout_id']))->save();
                     $order->save();
                 }
             }
