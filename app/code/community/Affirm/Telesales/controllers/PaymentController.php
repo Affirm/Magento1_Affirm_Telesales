@@ -36,7 +36,7 @@ class Affirm_Telesales_PaymentController extends Mage_Checkout_Controller_Action
                                 ->setLastSuccessQuoteId($order->getId())
                                 ->clearHelperData();
                             Mage::getSingleton('checkout/session')->setLastOrderId($order->getId())
-                                ->setLastRealOrderId($order->getIncrementId());
+                                 ->setLastRealOrderId($order->getIncrementId());
                             $order->sendNewOrderEmail();
                             $this->_redirect('checkout/onepage/success');
                             return;
