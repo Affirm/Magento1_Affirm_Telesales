@@ -14,7 +14,6 @@ var AFFIRM_AFFIRM = AFFIRM_AFFIRM || {};
                 onSuccess: function (response) {
                     try {
                         var data = JSON.parse(response.responseText);
-                        console.log(data);
                         if (data.success) {
                             window.location.reload();
                         } else if(data.error && data.message){
@@ -39,7 +38,6 @@ var AFFIRM_AFFIRM = AFFIRM_AFFIRM || {};
                 onSuccess: function (response) {
                     try {
                         var data = JSON.parse(response.responseText);
-                        console.log(data);
                         if (data.success) {
                             window.location.reload();
                         } else if(data.error && data.message){
