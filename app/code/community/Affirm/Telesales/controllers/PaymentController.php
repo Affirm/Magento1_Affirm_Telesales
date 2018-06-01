@@ -14,7 +14,7 @@ class Affirm_Telesales_PaymentController extends Mage_Checkout_Controller_Action
             $result['success']  = false;
             $result['error']    = true;
             $result['error_messages'] = $this->__('We weren’t able to process your order either because of a processing error or an issue with your loan application. We’re sorry for the inconvenience. Please contact us or try again later.');
-
+            Mage::log('Missing Affirm checkout token');
             $this->getResponse()->setBody(Mage::helper('core')->jsonEncode($result));
             $failureUrl = Mage::getUrl('telesales/payment/failure');
             $this->_redirectUrl($failureUrl);
@@ -36,11 +36,12 @@ class Affirm_Telesales_PaymentController extends Mage_Checkout_Controller_Action
                                 ->setLastSuccessQuoteId($order->getId())
                                 ->clearHelperData();
                             Mage::getSingleton('checkout/session')->setLastOrderId($order->getId())
-                                 ->setLastRealOrderId($order->getIncrementId());
+                                ->setLastRealOrderId($order->getIncrementId());
                             $order->sendNewOrderEmail();
                             $this->_redirect('checkout/onepage/success');
                             return;
                         } else {
+                            Mage::log('Order is already processed');
                             Mage::getSingleton('core/session')->addError($this->__('Your order has already been processed. Please contact us for more information about your order.'));
                             $redirectUrl = Mage::getUrl('telesales/payment/failure');
                             $this->_redirectUrl($redirectUrl);
@@ -49,19 +50,19 @@ class Affirm_Telesales_PaymentController extends Mage_Checkout_Controller_Action
                     }
                 } catch (Affirm_Affirm_Exception $e) {
                     Mage::logException($e);
-                    Mage::throwException(
-                        Mage::helper('affirm_telesales')->__('We couldn’t find your order. Please contact us or try again later.')
-                    );
-                    Mage::getSingleton('core/session')->addError($e->getMessage());
+                    Mage::log('Error in order processing during confirmation');
+                    Mage::getSingleton('core/session')->addError($this->__('We couldn’t find your order. Please contact us or try again later.'));
                     $this->getResponse()->setRedirect(Mage::getUrl('telesales/payment/failure'))->sendResponse();
                     return;
                 } catch (Mage_Core_Exception $e) {
                     Mage::logException($e);
+                    Mage::log('Error in order processing during confirmation');
                     Mage::getSingleton('core/session')->addError($this->__('We weren’t able to process your order either because of a processing error or an issue with your loan application. We’re sorry for the inconvenience. Please contact us or try again later.'));
                     $this->getResponse()->setRedirect(Mage::getUrl('telesales/payment/failure'))->sendResponse();
                     return;
                 }
             }  else {
+                Mage::log('Missing merchant external reference.');
                 Mage::throwException(
                     Mage::helper('affirm_telesales')->__('We weren’t able to process your order either because of a processing error or an issue with your loan application. We’re sorry for the inconvenience. Please contact us or try again later.')
                 );
