@@ -18,6 +18,11 @@ class Affirm_Telesales_Model_Telesales extends Affirm_Affirm_Model_Payment
         return $this->_apiRequest(Varien_Http_Client::POST, "store", $checkoutObj, null ,self::API_CHECKOUT_PATH);
     }
 
+    public function resendCheckout($checkoutTokenObject)
+    {
+        return $this->_apiRequest(Varien_Http_Client::POST, "resend", $checkoutTokenObject, null ,self::API_CHECKOUT_PATH);
+    }
+
     public function getCheckoutFromToken($token)
     {
         return $this->_apiRequest(Zend_Http_Client::GET, $token, null, null,self::API_CHECKOUT_PATH);
@@ -78,8 +83,14 @@ class Affirm_Telesales_Model_Telesales extends Affirm_Affirm_Model_Payment
         }
         //validate to make sure there are no errors here
         if (isset($retJson['status_code'])) {
-            throw new Affirm_Affirm_Exception(Mage::helper('affirm')->__('Affirm error code:'.
-                $retJson['status_code'] . ' error: '. $retJson['message']));
+            if(isset($retJson['code']) && ($retJson['code'] == 'checkout-unable-to-resend')){
+                Mage::log(Mage::helper('affirm')->__('Affirm error code:' .
+                    $retJson['status_code'] . ' error: ' . $retJson['message']));
+                return $retJson;
+            } else {
+                throw new Affirm_Affirm_Exception(Mage::helper('affirm')->__('Affirm error code:' .
+                    $retJson['status_code'] . ' error: ' . $retJson['message']));
+            }
         }
         return $retJson;
     }

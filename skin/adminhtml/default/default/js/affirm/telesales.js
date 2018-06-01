@@ -14,11 +14,12 @@ var AFFIRM_AFFIRM = AFFIRM_AFFIRM || {};
                 onSuccess: function (response) {
                     try {
                         var data = JSON.parse(response.responseText);
-                        console.log(data);
                         if (data.success) {
                             window.location.reload();
-                        } else{
-                            alert('Error in sending checkout request to user. Please try again.');
+                        } else if(data.error && data.message){
+                            alert(data.message);
+                        } else {
+                            alert('The Affirm checkout link was not sent to the customer due to an error. Please try again.');
                         }
                     } catch (e) {
 
@@ -37,11 +38,12 @@ var AFFIRM_AFFIRM = AFFIRM_AFFIRM || {};
                 onSuccess: function (response) {
                     try {
                         var data = JSON.parse(response.responseText);
-                        console.log(data);
                         if (data.success) {
                             window.location.reload();
-                        } else{
-                            alert('Error in sending checkout request to user. Please try again.');
+                        } else if(data.error && data.message){
+                            alert(data.message);
+                        } else {
+                            alert('The Affirm checkout link was not sent to the customer due to an error. Please try again.');
                         }
                     } catch (e) {
 
