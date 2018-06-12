@@ -1,5 +1,7 @@
  [![](docs/splash.png)](https://affirm.com) 
 
+Note - This module is an add-on of Affirm's Marketplace Module. To use this module, you must have downloaded and installed Affirm's Marketplace Module first. https://marketplace.magento.com/affirm-affirm-affirm.html
+
 **Compatible with**
 
 Magento CE 1.4.0.1+
