@@ -1,7 +1,7 @@
 app/code/community/Affirm/Telesales                                 app/code/community/Affirm/Telesales
-app/design/adminhtml/default/default/layout/affirm                  app/design/adminhtml/default/default/layout/affirm
+app/design/adminhtml/default/default/layout/affirm/telesales.xml    app/design/adminhtml/default/default/layout/affirm/telesales.xml
 app/design/adminhtml/default/default/template/affirm/telesales      app/design/adminhtml/default/default/template/affirm/telesales
-app/design/frontend/base/default/layout/affirm                      app/design/frontend/base/default/layout/affirm
+app/design/frontend/base/default/layout/affirm/telesales.xml        app/design/frontend/base/default/layout/affirm/telesales.xml
 app/design/frontend/base/default/template/affirm/telesales          app/design/frontend/base/default/template/affirm/telesales
 app/etc/modules/Affirm_Telesales.xml             		            app/etc/modules/Affirm_Telesales.xml
-skin/adminhtml/default/default/js/affirm                            skin/adminhtml/default/default/js/affirm
+skin/adminhtml/default/default/js/affirm/telesales.js               skin/adminhtml/default/default/js/affirm/telesales.js
