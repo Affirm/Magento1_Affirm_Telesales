@@ -105,4 +105,14 @@ class Affirm_Telesales_Adminhtml_TelesalesController extends Mage_Adminhtml_Cont
         $response = Mage::getModel('affirm_telesales/telesales')->resendCheckout($checkoutTokenObject);
         return $response;
     }
+
+    /**
+     * Acl check for admin
+     *
+     * @return bool
+     */
+    protected function _isAllowed()
+    {
+        return Mage::getSingleton('admin/session')->isAllowed('sales/order');
+    }
 }
