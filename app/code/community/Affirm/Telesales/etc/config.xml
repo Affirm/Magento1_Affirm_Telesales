@@ -101,6 +101,28 @@
                 </telesales>
             </updates>
         </layout>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <affirm_telesales translate="title">
+                                            <title>Affirm Telesales</title>
+                                        </affirm_telesales>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
     </adminhtml>
     <admin>
         <routers>
