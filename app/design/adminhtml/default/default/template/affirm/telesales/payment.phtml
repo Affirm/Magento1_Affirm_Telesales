@@ -51,3 +51,15 @@ $order = Mage::helper('affirm_telesales')->getOrder() ?>
     </fieldset>
 </div>
 <div class="clear"></div>
+<div class="entry-edit box-left">
+    <div class="entry-edit-head">
+        <h4 class="icon-head"><?php echo $this->__('Affirm Application Status') ?></h4>
+    </div>
+    <fieldset>
+        <div id="affirm-telesales-status-block">
+            <div id="affirm-telesales-status">
+                <?php echo $this->getApplicationStatus() ?>
+            </div>
+        </div>
+    </fieldset>
+</div>
