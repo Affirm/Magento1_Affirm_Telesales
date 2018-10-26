@@ -172,4 +172,8 @@ class Affirm_Telesales_Helper_Data extends Mage_Core_Helper_Abstract
         }
         return false;
     }
+
+    public function getToken(){
+        return $this->getOrder()->getPayment()->getMethodInstance()->getCheckoutToken();
+    }
 }
