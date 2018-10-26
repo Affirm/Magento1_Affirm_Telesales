@@ -130,12 +130,9 @@ class Affirm_Telesales_Block_Adminhtml_Sales_Order_View_Info_Block extends Mage_
                     $message = "Payment is complete. Ready to finalize order.";
                     break;
                 case "not_approved":
-                    $status = "Loan not approved";
-                    $message = "Customer's application is not approved.";
-                    break;
                 case "more_information_needed":
-                    $status = "Pending more information";
-                    $message = "Customer needs to provide more information to continue with loan approval.";
+                    $status = "Pending loan approval";
+                    $message = "Waiting for loan approval";
                     break;
                 case "unknown":
                     $status = "Application sent";
