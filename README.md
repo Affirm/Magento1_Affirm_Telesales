@@ -45,7 +45,7 @@ composer require affirm/magento1-telesales
 Configure
 ---------
 
-Visit https://docs.affirm.com/Integrate_Affirm/Platform_Integration/Magento_Integration#configure_the_affirm payment_method for details
+Visit https://docs.affirm.com/Integrate_Affirm/Platform_Integration/Magento_Integration/Magento_Telesales_Integration for details
 
 
 Developers
