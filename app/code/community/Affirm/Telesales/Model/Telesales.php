@@ -185,7 +185,8 @@ class Affirm_Telesales_Model_Telesales extends Affirm_Affirm_Model_Payment
             }
 
             try{
-                $baseImageUrl = Mage::helper('catalog/image')->init($product, 'image');
+                $loadProduct = Mage::getModel('catalog/product')->load($orderItem->getProductId());
+                $baseImageUrl = $loadProduct->getImageUrl();
             }
             catch(Exception $e) {
                 $baseImageUrl = Mage::getDesign()->getSkinUrl('images/catalog/product/placeholder/image.jpg',array('_area'=>'frontend'));
